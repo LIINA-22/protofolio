@@ -330,3 +330,234 @@ a {
 .keep-together {
   display: inline-block;
 }
+/* قسم المهارات */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+    perspective: 1000px;
+}
+
+.skill-group {
+  background-color: #12151C;
+  border: 1px solid #232838;
+  border-radius: 14px;
+  padding: 22px;
+  transition: transform 0.2s ease-out, border-color 0.3s;
+  transform-style: preserve-3d;}
+
+.skill-group:hover {
+  border-color: rgba(94, 234, 212, 0.45);
+}
+
+.skill-group h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #9AA3B2;
+  padding: 5px 10px;
+  border: 1px solid #2E3442;
+  border-radius: 6px;
+}
+
+/* النقطة الصفرا للمهارات اللي أتعلمها الحين */
+.skill-list li.learning::before,
+.learning-dot {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background-color: #FBBF24;
+  vertical-align: middle;
+}
+
+.skills-note {
+  margin-top: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #9AA3B2;
+}
+/* عمق داخل كروت المهارات */
+.skill-group h3 {
+  transform: translateZ(30px);
+}
+
+.skill-list {
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+.skill-list li {
+  transition: transform 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.skill-list li:hover {
+  transform: translateZ(16px);
+  border-color: #5EEAD4;
+  color: #ECEEF2;
+}
+/* قسم المشاريع */
+.section-wide {
+  max-width: 1100px;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 56px;
+}
+
+.projects-side {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* أزرار المشاريع */
+.project-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  perspective: 800px;
+}
+
+.project-tab {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid #232838;
+  background-color: #12151C;
+  color: #9AA3B2;
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transform-origin: left center;
+  transform: rotateY(12deg);
+  transition: transform 0.4s ease-out, background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.project-tab:hover {
+  color: #ECEEF2;
+  transform: rotateY(6deg) translateZ(10px);
+}
+
+.project-tab.active {
+  border-color: rgba(94, 234, 212, 0.55);
+  background-color: rgba(94, 234, 212, 0.08);
+  color: #ECEEF2;
+  transform: rotateY(0deg) translateZ(24px);
+  box-shadow: 0 18px 40px -16px rgba(94, 234, 212, 0.35);
+}
+
+/* تفاصيل المشروع: يظهر النشط بس */
+.project-info {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.project-info.active {
+  display: flex;
+}
+
+.project-info h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+.project-info p {
+  color: #9AA3B2;
+  line-height: 1.7;
+}
+
+/* الشارات */
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid #2E3442;
+  color: #9AA3B2;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-accent {
+  color: #5EEAD4;
+  border-color: rgba(94, 234, 212, 0.4);
+  background-color: rgba(94, 234, 212, 0.1);
+}
+
+.badge-warning {
+  color: #FBBF24;
+  border-color: rgba(251, 191, 36, 0.45);
+  background-color: rgba(251, 191, 36, 0.1);
+}
+
+/* المسرح والشاشات المتراكبة */
+.stage {
+  flex: 999 1 520px;
+  position: relative;
+  height: 500px;
+  perspective: 1600px;
+}
+
+.screen {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 84%;
+  border-radius: 14px;
+  border: 1px solid #2E3442;
+  background-color: #12151C;
+  overflow: hidden;
+  box-shadow: 30px 44px 80px -24px rgba(0, 0, 0, 0.85);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s;
+}
+
+.screen img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.screen[data-pos="0"] {
+  transform: rotateY(-14deg) rotateX(5deg);
+  opacity: 1;
+  z-index: 3;
+}
+
+.screen[data-pos="1"] {
+  transform: translateX(10%) translateY(-34px) translateZ(-170px) rotateY(-14deg) rotateX(5deg);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.screen[data-pos="2"] {
+  transform: translateX(20%) translateY(-68px) translateZ(-340px) rotateY(-14deg) rotateX(5deg);
+  opacity: 0.22;
+  z-index: 1;
+}
