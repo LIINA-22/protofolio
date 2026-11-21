@@ -25,7 +25,7 @@ a {
   text-decoration: none;
 }
 
-/* قائمة التنقل */
+/* ========== قائمة التنقل ========== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -57,7 +57,7 @@ a {
   color: #ECEEF2;
 }
 
-/* قسم الواجهة: صندوقين جنب بعض */
+/* ========== الواجهة ========== */
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -94,7 +94,11 @@ a {
   max-width: 620px;
 }
 
-/* الأزرار */
+.keep-together {
+  display: inline-block;
+}
+
+/* ========== الأزرار ========== */
 .buttons {
   display: flex;
   gap: 12px;
@@ -126,7 +130,7 @@ a {
   border: 1px solid #2E3442;
 }
 
-/* المشهد الثلاثي الأبعاد */
+/* ========== المشهد الثلاثي الأبعاد ========== */
 .scene {
   flex: 1 1 460px;
   height: 460px;
@@ -139,6 +143,7 @@ a {
   inset: 0;
   transform-style: preserve-3d;
   transform: rotateX(8deg) rotateY(-18deg);
+  transition: transform 0.4s ease-out;
 }
 
 /* شكل مشترك للبطاقات */
@@ -193,38 +198,6 @@ a {
 .kw { color: #5EEAD4; }
 .str { color: #FCD34D; }
 
-/* شكل مشترك لكل الأقسام */
-.section {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 96px 24px;
-}
-
-.section-label {
-  font-family: 'JetBrains Mono', monospace;
-  color: #5EEAD4;
-  margin-bottom: 12px;
-}
-
-.section h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 40px;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-}
-
-/* نص قسم About */
-.about-text p {
-  color: #9AA3B2;
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-.about-text strong {
-  color: #ECEEF2;
-  font-weight: 600;
-}
 /* بطاقة الأمان */
 .security-card {
   right: 0;
@@ -323,19 +296,49 @@ a {
   50% { translate: 0 -10px; }
 }
 
-/* لمن يفضلون حركة أقل */
-@media (prefers-reduced-motion: reduce) {
-  .card { animation: none; }
+/* ========== شكل مشترك لكل الأقسام ========== */
+.section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 96px 24px;
 }
-.keep-together {
-  display: inline-block;
+
+.section-wide {
+  max-width: 1100px;
 }
-/* قسم المهارات */
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  color: #5EEAD4;
+  margin-bottom: 12px;
+}
+
+.section h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+/* ========== About ========== */
+.about-text p {
+  color: #9AA3B2;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-text strong {
+  color: #ECEEF2;
+  font-weight: 600;
+}
+
+/* ========== Skills ========== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
-    perspective: 1000px;
+  perspective: 1000px;
 }
 
 .skill-group {
@@ -343,8 +346,9 @@ a {
   border: 1px solid #232838;
   border-radius: 14px;
   padding: 22px;
+  transform-style: preserve-3d;
   transition: transform 0.2s ease-out, border-color 0.3s;
-  transform-style: preserve-3d;}
+}
 
 .skill-group:hover {
   border-color: rgba(94, 234, 212, 0.45);
@@ -354,6 +358,7 @@ a {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 18px;
   margin-bottom: 14px;
+  transform: translateZ(30px);
 }
 
 .skill-list {
@@ -361,6 +366,8 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
 }
 
 .skill-list li {
@@ -370,6 +377,13 @@ a {
   padding: 5px 10px;
   border: 1px solid #2E3442;
   border-radius: 6px;
+  transition: transform 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.skill-list li:hover {
+  transform: translateZ(16px);
+  border-color: #5EEAD4;
+  color: #ECEEF2;
 }
 
 /* النقطة الصفرا للمهارات اللي أتعلمها الحين */
@@ -391,30 +405,8 @@ a {
   font-size: 12px;
   color: #9AA3B2;
 }
-/* عمق داخل كروت المهارات */
-.skill-group h3 {
-  transform: translateZ(30px);
-}
 
-.skill-list {
-  transform: translateZ(20px);
-  transform-style: preserve-3d;
-}
-
-.skill-list li {
-  transition: transform 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.skill-list li:hover {
-  transform: translateZ(16px);
-  border-color: #5EEAD4;
-  color: #ECEEF2;
-}
-/* قسم المشاريع */
-.section-wide {
-  max-width: 1100px;
-}
-
+/* ========== Projects ========== */
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -455,6 +447,13 @@ a {
   transform-origin: left center;
   transform: rotateY(12deg);
   transition: transform 0.4s ease-out, background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.project-tab span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5EEAD4;
 }
 
 .project-tab:hover {
@@ -560,4 +559,80 @@ a {
   transform: translateX(20%) translateY(-68px) translateZ(-340px) rotateY(-14deg) rotateX(5deg);
   opacity: 0.22;
   z-index: 1;
+}
+
+/* ========== Highlights ========== */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  perspective: 1000px;
+}
+
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  background-color: #12151C;
+  border: 1px solid #232838;
+  border-radius: 14px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, border-color 0.3s;
+}
+
+.highlight-card:hover,
+.highlight-card.featured {
+  border-color: rgba(94, 234, 212, 0.45);
+}
+
+.highlight-icon {
+  color: #5EEAD4;
+  margin-bottom: 6px;
+  transform: translateZ(25px);
+}
+
+.highlight-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #5EEAD4;
+  transform: translateZ(25px);
+}
+
+.highlight-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  transform: translateZ(35px);
+}
+
+.highlight-card p {
+  color: #9AA3B2;
+  font-size: 15px;
+  line-height: 1.6;
+  transform: translateZ(15px);
+}
+
+/* ========== ظهور العناصر وقت النزول ========== */
+.js-reveal .reveal-item {
+  opacity: 0;
+  transform: perspective(900px) rotateX(20deg) translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.js-reveal .reveal-item.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========== لمن يفضلون حركة أقل ========== */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+
+  .js-reveal .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

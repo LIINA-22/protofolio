@@ -1,4 +1,4 @@
-// نجيب العناصر اللي نحتاجها من الصفحة
+// ========== ميلان المشهد في الواجهة ==========
 const hero = document.querySelector('.hero');
 const sceneInner = document.querySelector('.scene-inner');
 
@@ -25,9 +25,10 @@ if (!reduceMotion) {
     sceneInner.style.transform = 'rotateX(8deg) rotateY(-18deg)';
   });
 }
-// ميلان كروت المهارات مع الماوس
+
+// ========== ميلان كروت المهارات والإنجازات ==========
 if (!reduceMotion) {
-  const skillCards = document.querySelectorAll('.skill-group');
+  const skillCards = document.querySelectorAll('.skill-group, .highlight-card');
 
   skillCards.forEach((card) => {
     card.addEventListener('mousemove', (event) => {
@@ -43,7 +44,8 @@ if (!reduceMotion) {
     });
   });
 }
-// تبديل المشاريع
+
+// ========== تبديل المشاريع ==========
 const tabs = document.querySelectorAll('.project-tab');
 const infos = document.querySelectorAll('.project-info');
 const screens = document.querySelectorAll('.screen');
@@ -64,3 +66,43 @@ tabs.forEach((tab) => {
     });
   });
 });
+
+// ========== 3D مستمر وقت النزول والطلوع ==========
+const sections3d = document.querySelectorAll('.reveal');
+let ticking = false;
+
+function update3D() {
+  const viewH = window.innerHeight;
+
+  sections3d.forEach((section) => {
+    const box = section.getBoundingClientRect();
+    const center = box.top + box.height / 2;
+
+    // 0 لما القسم في نص الشاشة، موجب لما يكون تحت، سالب لما يكون فوق
+    let progress = (center - viewH / 2) / viewH;
+    progress = Math.max(-1, Math.min(1, progress));
+
+    const rotateX = progress * 25;
+    const depth = Math.abs(progress) * -200;
+    const opacity = 1 - Math.abs(progress) * 0.7;
+
+    section.style.transform = `perspective(1200px) rotateX(${rotateX}deg) translateZ(${depth}px)`;
+    section.style.opacity = opacity;
+  });
+
+  ticking = false;
+}
+
+function onScroll() {
+  if (!ticking) {
+    requestAnimationFrame(update3D);
+    ticking = true;
+  }
+}
+
+if (!reduceMotion) {
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update3D();
+}
+  
