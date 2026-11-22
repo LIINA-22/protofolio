@@ -776,3 +776,78 @@ a {
   background-color: #5EEAD4;
   border-color: #5EEAD4;
 }
+/* ========== الخط الزمني للخبرات ========== */
+.highlights-subtitle {
+  margin-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #9AA3B2;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 56px;
+  padding-left: 32px;
+}
+
+/* الخط العمودي */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background-color: #232838;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+/* النقطة على الخط */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #5EEAD4;
+  background-color: #0D0F14;
+}
+
+/* الأدوار الحالية: النقطة مضيئة */
+.timeline-item.current::before {
+  background-color: #5EEAD4;
+  box-shadow: 0 0 12px rgba(94, 234, 212, 0.6);
+}
+
+.timeline-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #5EEAD4;
+}
+
+.timeline-item h3 {
+  margin-top: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+}
+
+.timeline-org {
+  margin-top: 2px;
+  color: #ECEEF2;
+  font-size: 15px;
+}
+
+.timeline-desc {
+  margin-top: 6px;
+  color: #9AA3B2;
+  font-size: 15px;
+  line-height: 1.6;
+}
