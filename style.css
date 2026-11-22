@@ -560,7 +560,11 @@ a {
   opacity: 0.22;
   z-index: 1;
 }
-
+.screen[data-pos="3"] {
+  transform: translateX(28%) translateY(-96px) translateZ(-500px) rotateY(-14deg) rotateX(5deg);
+  opacity: 0.1;
+  z-index: 0;
+}
 /* ========== Highlights ========== */
 .highlights-grid {
   display: grid;
@@ -635,4 +639,140 @@ a {
     transform: none;
     transition: none;
   }
+}
+
+/* ========== معرض صور Volt Tracker ========== */
+.gallery {
+  position: relative;
+  height: 340px;
+  perspective: 1000px;
+  background-color: #0D0F14;
+}
+
+.screen .gallery-img {
+  position: absolute;
+  top: 36px;
+  left: 28px;
+  width: calc(100% - 96px);
+  height: 270px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+  border: 1px solid #2E3442;
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.8);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s;
+}
+
+.gallery-img[data-g="0"] {
+  transform: translateZ(0);
+  opacity: 1;
+  z-index: 3;
+}
+
+.gallery-img[data-g="1"] {
+  transform: translateX(24px) translateY(-16px) translateZ(-80px);
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.gallery-img[data-g="2"] {
+  transform: translateX(48px) translateY(-32px) translateZ(-160px);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* ========== تفاصيل المشروع القابلة للفتح ========== */
+.project-details {
+  width: 100%;
+  border: 1px solid #232838;
+  border-radius: 10px;
+  background-color: #12151C;
+}
+
+.project-details summary {
+  padding: 12px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #5EEAD4;
+  cursor: pointer;
+  list-style: none;
+}
+
+.project-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-details summary::before {
+  content: "+ ";
+}
+
+.project-details[open] summary::before {
+  content: "− ";
+}
+
+.details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 16px 18px;
+}
+
+.details-body h4 {
+  margin-top: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  color: #ECEEF2;
+}
+
+.details-body p,
+.details-body li {
+  color: #9AA3B2;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.details-body ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 18px;
+}
+
+.details-body strong {
+  color: #ECEEF2;
+  font-weight: 600;
+}
+
+.details-body code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #FCD34D;
+}
+/* أزرار شاشات Volt Tracker */
+.gallery-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gallery-tab {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #2E3442;
+  background-color: transparent;
+  color: #9AA3B2;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.gallery-tab:hover {
+  color: #ECEEF2;
+}
+
+.gallery-tab.active {
+  color: #0D0F14;
+  background-color: #5EEAD4;
+  border-color: #5EEAD4;
 }

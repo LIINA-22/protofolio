@@ -151,6 +151,7 @@
           <button class="project-tab active" data-index="0"><span>01</span> Syllo</button>
           <button class="project-tab" data-index="1"><span>02</span> CCSIT Student Council</button>
           <button class="project-tab" data-index="2"><span>03</span> Council.exe</button>
+          <button class="project-tab" data-index="3"><span>04</span> Volt Tracker</button>
         </div>
 
         <div class="project-info active">
@@ -188,6 +189,56 @@
           </ul>
           <a href="https://council-games.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary">Play →</a>
         </div>
+
+        <div class="project-info">
+          <span class="badge">Course project · COMP-108</span>
+          <h3>Volt Tracker</h3>
+          <p>A C++ terminal app for tracking and analyzing monthly electricity use, with a UI concept for a future version.</p>
+          <ul class="skill-list">
+            <li>C++</li>
+            <li>Input validation</li>
+            <li>File I/O</li>
+            <li>UI concept</li>
+          </ul>
+
+          <div class="gallery-tabs">
+            <button class="gallery-tab active" data-g-index="0">Dashboard</button>
+            <button class="gallery-tab" data-g-index="1">Readings</button>
+            <button class="gallery-tab" data-g-index="2">Threshold</button>
+          </div>
+
+          <details class="project-details">
+            <summary>Read the case study</summary>
+            <div class="details-body">
+              <h4>The idea</h4>
+              <p>Many people don't know how much electricity they use each month, or which months spike. Volt Tracker makes it easy to enter monthly readings and analyze them.</p>
+
+              <h4>What I built</h4>
+              <ul>
+                <li><strong>Data storage:</strong> an array that holds 12 months of readings.</li>
+                <li><strong>Calculations:</strong> separate functions for the total, the average, and the highest and lowest months.</li>
+                <li><strong>Menu:</strong> a loop that repeats until the user chooses to exit.</li>
+                <li><strong>Input validation:</strong> rejects letters and negative numbers, and asks again instead of crashing.</li>
+                <li><strong>Extras:</strong> readings sorted from lowest to highest, and an analysis of months above a user-defined limit.</li>
+                <li><strong>Report:</strong> saves the results to <code>report.txt</code>.</li>
+                <li><strong>Documentation:</strong> a README with the idea, how to run it, and a list of functions.</li>
+              </ul>
+
+              <h4>What I learned</h4>
+              <ul>
+                <li>Breaking a program into small functions, each with one job.</li>
+                <li>Working with arrays and loops.</li>
+                <li>Handling invalid input in C++ with <code>cin.clear</code> and <code>cin.ignore</code>.</li>
+                <li>Writing files and organizing a project on GitHub.</li>
+              </ul>
+
+              <h4>The UI concept</h4>
+              <p>An early design for a future version: a dashboard, a readings screen, and a threshold analysis. It's a concept and isn't connected to the code yet.</p>
+            </div>
+          </details>
+
+          <a href="https://github.com/LIINA-22/electricity-tracker" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub →</a>
+        </div>
       </div>
 
       <div class="stage" aria-hidden="true">
@@ -211,6 +262,17 @@
             <span class="file-name">council-games.netlify.app</span>
           </div>
           <img src="images/council-games.png" alt="Council.exe games">
+        </div>
+        <div class="screen" data-pos="3">
+          <div class="window-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="file-name">volt-tracker · UI concept</span>
+          </div>
+          <div class="gallery">
+            <img class="gallery-img" data-g="0" src="images/volt-tracker.png" alt="Volt Tracker dashboard">
+            <img class="gallery-img" data-g="1" src="images/volt-readings.png" alt="Volt Tracker readings screen">
+            <img class="gallery-img" data-g="2" src="images/volt-threshold.png" alt="Volt Tracker threshold analysis">
+          </div>
         </div>
       </div>
     </div>

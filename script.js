@@ -105,4 +105,23 @@ if (!reduceMotion) {
   window.addEventListener('resize', onScroll);
   update3D();
 }
-  
+
+ // ========== شاشات Volt Tracker: تتبدل لما تضغطين ==========
+const galleryImgs = document.querySelectorAll('.gallery-img');
+const galleryTabs = document.querySelectorAll('.gallery-tab');
+
+function showGallery(front) {
+  galleryImgs.forEach((img, i) => {
+    img.dataset.g = (i - front + galleryImgs.length) % galleryImgs.length;
+  });
+
+  galleryTabs.forEach((tab, i) => {
+    tab.classList.toggle('active', i === front);
+  });
+}
+
+galleryTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    showGallery(Number(tab.dataset.gIndex));
+  });
+});
